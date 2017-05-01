@@ -9,12 +9,6 @@ $host = "localhost";
 $userDDBB = "root";
 $passDDBB = "";
 
-// Create connection
-$conn = new mysqli($host, $userDDBB, $passDDBB);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 ?>
