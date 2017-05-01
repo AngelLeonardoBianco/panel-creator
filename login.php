@@ -67,11 +67,11 @@
 			</div>
 			<form role="form" action="cbr/chkUser.php" method="post" >
 				<div class="form-group has-feedback lg left-feedback no-label">
-				  <input type="text" class="form-control no-border input-lg rounded" placeholder="Usuario" autofocus>
+				  <input type="text" class="form-control no-border input-lg rounded" placeholder="Usuario" autofocus name="user" id="user">
 				  <span class="fa fa-user form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback lg left-feedback no-label">
-				  <input type="password" class="form-control no-border input-lg rounded" placeholder="Contraseña">
+				  <input type="password" class="form-control no-border input-lg rounded" placeholder="Contraseña" name="pass" id="pass">
 				  <span class="fa fa-unlock-alt form-control-feedback"></span>
 				</div>
 				<div class="form-group">
