@@ -7,12 +7,12 @@
 
 // Check user, pass and level
 include ("../cbr/funcs.php");
-sessionChk();
+$conn = sessionChk();
 $user = $_POST["user"];
 $pass = $_POST["pass"];
 
 
-loginChk($user, $pass);
+loginChk($user, $pass, $conn);
 
 
 ?>

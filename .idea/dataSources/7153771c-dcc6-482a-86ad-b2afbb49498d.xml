@@ -11,43 +11,75 @@
     <schema id="5" parent="1" name="performance_schema"/>
     <schema id="6" parent="1" name="phpmyadmin"/>
     <schema id="7" parent="1" name="test"/>
-    <table id="8" parent="2" name="mlm_users_test"/>
-    <column id="9" parent="8" name="userID">
+    <table id="8" parent="2" name="mlm_user_level_test"/>
+    <table id="9" parent="2" name="mlm_users_test"/>
+    <column id="10" parent="8" name="levelID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="10" parent="8" name="Fname">
+    <column id="11" parent="8" name="assets">
       <Position>2</Position>
       <DataType>text|0</DataType>
-      <NotNull>1</NotNull>
     </column>
-    <column id="11" parent="8" name="Lname">
+    <column id="12" parent="8" name="levelLevel">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="13" parent="8" name="mlm_user_level_test_levelID_uindex">
+      <ColNames>levelID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="14" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>levelID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="15" parent="8" name="mlm_user_level_test_levelID_uindex">
+      <ColNames>levelID</ColNames>
+      <UnderlyingIndexName>mlm_user_level_test_levelID_uindex</UnderlyingIndexName>
+    </key>
+    <column id="16" parent="9" name="userID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="17" parent="9" name="Fname">
       <Position>3</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="12" parent="8" name="email">
+    <column id="18" parent="9" name="Lname">
       <Position>4</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="13" parent="8" name="password">
+    <column id="19" parent="9" name="email">
       <Position>5</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="14" parent="8" name="IV">
+    <column id="20" parent="9" name="password">
       <Position>6</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="9" name="IV">
+      <Position>7</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="15" parent="8" name="userName">
-      <Position>7</Position>
+    <column id="22" parent="9" name="userName">
+      <Position>2</Position>
       <DataType>text|0</DataType>
     </column>
-    <key id="16" parent="8" name="PRIMARY">
+    <column id="23" parent="9" name="level">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="24" parent="9" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userID</ColNames>
       <Primary>1</Primary>
