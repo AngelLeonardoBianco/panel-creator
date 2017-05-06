@@ -63,7 +63,7 @@
 			
 			<form role="form">
 				<div class="form-group has-feedback lg left-feedback no-label">
-				  <input type="text" class="form-control no-border input-lg rounded" placeholder="Usuario ó Email Sponsor" autofocus>
+				  <input type="text" class="form-control no-border input-lg rounded" placeholder="Usuario ó Email Sponsor" autofocus id="sponsor" name="sponsor">
 				  <span class="fa fa-users form-control-feedback"></span>
 				</div>
 

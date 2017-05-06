@@ -5,20 +5,36 @@
  * angel.leonardo.bianco@gmail.com
  */
 
-include "../config/BBDDConfig.php";
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/// Conect Data Base
+/////////////////////////////////////////////////////////////////////////////////////////
+function conectDDBB()
+{
+
+    require "../config/BBDDConfig.php";
+
+    $link = mysqli_connect($host, $userDDBB, $passDDBB);
+
+    mysqli_select_db($link, "mlm");
+
+    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /// Show Data retireved in a query
 /////////////////////////////////////////////////////////////////////////////////////////
-function mostrarDatos ($resultados) {
+function mostrarDatos($resultados)
+{
 
-    if ($resultados !=NULL) {
+    if ($resultados != NULL) {
 
-        echo "- Nombre: ".$resultados['userID']."<br/> ";
-        echo "- Edad: ".$resultados['userName']."<br/>";
-        echo "==========================================";}
-
-    else {echo "<br/>No hay más datos: <br/>".$resultados;}
+        echo "- Nombre: " . $resultados['userID'] . "<br/> ";
+        echo "- Edad: " . $resultados['userName'] . "<br/>";
+        echo "==========================================";
+    } else {
+        echo "<br/>No hay más datos: <br/>" . $resultados;
+    }
 
 }
 
@@ -47,7 +63,7 @@ function sessionChk()
 
 function loginChk($user, $pass, $conn)
 {
-
+    conectDDBB();
     $sql = "SELECT * FROM  mlm_users_test WHERE   userName = '" . $user . "'";
 
     $link = mysqli_connect("127.0.0.1", "root", "");
@@ -58,31 +74,47 @@ function loginChk($user, $pass, $conn)
 
     $result = mysqli_query($link, "SELECT * FROM mlm_users_test");
 
-    $extraido1= mysqli_fetch_array($result);
+    $extraido1 = mysqli_fetch_array($result);
 
     mostrarDatos($extraido1);
 
-    $extraido2= mysqli_fetch_array($result);
+    $extraido2 = mysqli_fetch_array($result);
 
     mostrarDatos($extraido2);
 
-    $extraido3= mysqli_fetch_array($result);
+    $extraido3 = mysqli_fetch_array($result);
 
     mostrarDatos($extraido3);
 
-    $extraido4= mysqli_fetch_array($result);
+    $extraido4 = mysqli_fetch_array($result);
 
     mostrarDatos($extraido4);
 
-    $extraido5= mysqli_fetch_array($result);
+    $extraido5 = mysqli_fetch_array($result);
 
     mostrarDatos($extraido5);
 
-    $extraido6= mysqli_fetch_array($result);
+    $extraido6 = mysqli_fetch_array($result);
 
     mostrarDatos($extraido6);
 
     mysqli_free_result($result);
+
+    mysqli_close($link);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/// Check Sponsor
+/////////////////////////////////////////////////////////////////////////////////////////
+
+function sponsorChk($user, $link)
+{
+    conectDDBB();
+    $sql = "SELECT * FROM  mlm_users_test WHERE   userName = '" . $user . "'";
+
+    $result = mysqli_query($link, "SELECT * FROM mlm_users_test");
+
+    $extraido1 = mysqli_fetch_array($result);
 
     mysqli_close($link);
 }
