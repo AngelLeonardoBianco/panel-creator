@@ -1,5 +1,30 @@
 $(document).ready(function(){
 
+	/** SPONSOR CHECK **/
+    var x_timer;
+
+    $("#sponsor").keyup(function (e){
+
+        clearTimeout(x_timer);
+
+        var user_name = $(this).val();
+        x_timer = setTimeout(function(){
+
+            check_username_ajax(user_name);
+        }, 1000);
+    });
+
+    function check_username_ajax(username){
+        $("#disp").html('<img src="assets/js/ajax-loader.gif" width="24px" />');
+        $.post('assets/js/sponsorChk.php', {'username':username}, function(data) {
+            $("#disp").html(data);
+        });
+
+    }
+
+
+
+
 	/** SIDEBAR FUNCTION **/
 	$('.sidebar-left ul.sidebar-menu li a').click(function() {
 		"use strict";
@@ -20,6 +45,7 @@ $(document).ready(function(){
 				return false;	
 			}		
 	});
+
 
 	if ($(window).width() < 1025) {
 		$(".sidebar-left").removeClass("sidebar-nicescroller");

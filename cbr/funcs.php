@@ -103,20 +103,5 @@ function loginChk($user, $pass, $conn)
     mysqli_close($link);
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////
-/// Check Sponsor
-/////////////////////////////////////////////////////////////////////////////////////////
-
-function sponsorChk($user, $link)
-{
-    conectDDBB();
-    $sql = "SELECT * FROM  mlm_users_test WHERE   userName = '" . $user . "'";
-
-    $result = mysqli_query($link, "SELECT * FROM mlm_users_test");
-
-    $extraido1 = mysqli_fetch_array($result);
-
-    mysqli_close($link);
-}
 
 ?>

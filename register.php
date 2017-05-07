@@ -7,10 +7,9 @@
 		<meta name="keywords" content="">
 		<meta name="author" content="">
 		<title>Login | MLMGESTION</title>
- 
+
 		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
 		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-		
 		<!-- PLUGINS CSS -->
 		<link href="assets/plugins/weather-icon/css/weather-icons.min.css" rel="stylesheet">
 		<link href="assets/plugins/prettify/prettify.min.css" rel="stylesheet">
@@ -63,11 +62,11 @@
 			
 			<form role="form">
 				<div class="form-group has-feedback lg left-feedback no-label">
-				  <input type="text" class="form-control no-border input-lg rounded" placeholder="Usuario ó Email Sponsor" autofocus id="sponsor" name="sponsor">
+				  <input type="text" class="form-control no-border input-lg rounded sponsor" placeholder="Usuario ó Email Sponsor" autofocus name="sponsor" id="sponsor">
 				  <span class="fa fa-users form-control-feedback"></span>
 				</div>
 
-				<div class="alert alert-warning alert-bold-border fade in alert-dismissable">
+				<div class="alert alert-warning alert-bold-border fade in alert-dismissable" id="disp" name="disp">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 					Solo podrá registrarse al ser invitado por otro miembro registrado, introduzca la información del sponsor en la parte superior.
 				</div>
@@ -202,6 +201,6 @@
 		
 		<!-- MAIN APPS JS -->
 		<script src="assets/js/apps.js"></script>
-		
-	</body>
+
+    </body>
 </html>
