@@ -19,8 +19,41 @@ function conectDDBB()
     mysqli_select_db($link, "mlm");
 
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-}
 
+    return $link;
+}
+/////////////////////////////////////////////////////////////////////////////////////////
+/// Conect Data Base
+/////////////////////////////////////////////////////////////////////////////////////////
+function conectDDBB2()
+{
+
+    require "../../config/BBDDConfig.php";
+
+    $link = mysqli_connect($host, $userDDBB, $passDDBB);
+
+    mysqli_select_db($link, "mlm");
+
+    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+
+    return $link;
+}
+/////////////////////////////////////////////////////////////////////////////////////////
+/// Conect Data Base
+/////////////////////////////////////////////////////////////////////////////////////////
+function conectDDBB3()
+{
+
+    require "config/BBDDConfig.php";
+
+    $link = mysqli_connect($host, $userDDBB, $passDDBB);
+
+    mysqli_select_db($link, "mlm");
+
+    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+
+    return $link;
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 /// Show Data retireved in a query
 /////////////////////////////////////////////////////////////////////////////////////////
