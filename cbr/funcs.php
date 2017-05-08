@@ -5,6 +5,8 @@
  * angel.leonardo.bianco@gmail.com
  */
 
+$key_size = 32; // 256 bits
+$encryption_key = openssl_random_pseudo_bytes($key_size, $strong); // $strong will be true if the key is crypto safe
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /// Conect Data Base
@@ -135,6 +137,48 @@ function loginChk($user, $pass, $conn)
 
     mysqli_close($link);
 }
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+/// Encrypt
+///////////////////////////////////////////////////////////////////////////////////////////////
+function pkcs7_pad($data, $size)
+{
+$length = $size - strlen($data) % $size;
+return $data . str_repeat(chr($length), $length);
+}
+
+function encryptA ($dataToEncript, $encryption_key, $IV)
+{
+return openssl_encrypt(
+pkcs7_pad($dataToEncript, 16), // padded data
+'AES-256-CBC',        // cipher and mode
+$encryption_key,      // secret key
+0,                    // options (not used)
+$IV                   // initialisation vector
+);
+};
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+/// Dencrypt
+///////////////////////////////////////////////////////////////////////////////////////////////
+function pkcs7_unpad($data)
+{
+    return substr($data, 0, -ord($data[strlen($data) - 1]));
+}
+
+function decryptA($data, $enc, $IV)
+{
+    return pkcs7_unpad(openssl_decrypt(
+        $data,
+        'AES-256-CBC',
+        $enc,
+        0,
+        $IV
+    ));
+};
 
 
 ?>
